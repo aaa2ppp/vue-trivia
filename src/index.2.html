@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@3.2.22/dist/vue.global.js"></script>
+        <script src="script.2.js"></script>
+
+    </head>
+    <body>
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div id="app" class="container">
+
+            <div class="section">
+                <div><button id="swap_questions" v-on:click="askQuestions">Swap questions</button> {{ step }}</div>
+            </div>
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+
+                <!-- multiple choice question here -->
+                <my-asker type="choice" v-bind="part1" v-on:confirm="checkAnswer"/>
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+
+                <!-- free response question here -->
+                <my-asker v-bind="part2" v-on:confirm="checkAnswer"/>
+
+            </div>
+        </div>
+    </body>
+</html>
